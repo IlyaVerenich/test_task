@@ -1,5 +1,5 @@
-let state={
+let state = {
     items: [],
-}
+};
 
 export default state

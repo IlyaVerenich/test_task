@@ -1,5 +1,4 @@
 import c from './Content.module.css'
-import { Input  } from "antd"
 import "antd/dist/antd.css";
 
 function Content() {

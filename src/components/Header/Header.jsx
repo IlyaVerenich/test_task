@@ -7,10 +7,10 @@ import "antd/dist/antd.css";
 
 function Header() {
 
-    let searchInfo=(value)=>{
+    let searchInfo = (value) => {
         console.log(value);
     }
-    let changeTheme=()=>{
+    let changeTheme = () => {
         console.log('change');
     }
 
