@@ -9,15 +9,12 @@ import Error from "../../Error/Error";
 function Alcoholic() {
   const [error, setError] = useState(null);
   const [loaded, setLoaded] = useState(false);
-  const [alc, setAlc] = useState([]);
+  const [alco, setAlco] = useState([]);
 
   useEffect(() => {
     setLoaded(true);
     getAlcDrinks()
-      .then(
-        (result) => {
-          setAlc(result.drinks);
-        },
+      .then((result) => setAlco(result.drinks),
         (error) => {
           setLoaded(true);
           setError(error);
@@ -29,7 +26,7 @@ function Alcoholic() {
   return (
     <div className={a.container}>
       <div className={a.card}>
-        {alc.map((item) => (
+        {alco.map((item) => (
           <Card
             style={{ width: 200, margin: 50 }}
             cover={<img alt="example" src={item.strDrinkThumb} />}

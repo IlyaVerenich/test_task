@@ -12,9 +12,7 @@ function Drinks() {
     setLoaded(true);
     getAllDrinks()
       .then(
-        (result) => {
-          setAll(result.drinks);
-        },
+        (result) => setAll(result.drinks),
         (error) => {
           setLoaded(true);
           setError(error);

@@ -27,7 +27,6 @@ const Random = () => {
     );
     setLoaded(false);
   };
-  console.log(loaded);
   return (
     <div className={r.container}>
       <div className={r.card}>
