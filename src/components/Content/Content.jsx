@@ -1,4 +1,4 @@
-import c from './Content.module.css'
+import c from './Content.module.css';
 import "antd/dist/antd.css";
 
 function Content() {
@@ -14,4 +14,4 @@ function Content() {
     )
 }
 
-export default Content
+export default Content;

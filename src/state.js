@@ -2,4 +2,4 @@ let state = {
     items: [],
 };
 
-export default state
+export default state;

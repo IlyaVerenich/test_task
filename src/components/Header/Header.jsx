@@ -1,6 +1,6 @@
-import h from "./Header.module.css"
-import logo from "../../img/glass.svg"
-import { Input, Switch } from "antd"
+import h from "./Header.module.css";
+import logo from "../../img/glass.svg";
+import { Input, Switch } from "antd";
 import "antd/dist/antd.css";
 
 
@@ -23,4 +23,4 @@ function Header() {
     )
 }
 
-export default Header
+export default Header;
