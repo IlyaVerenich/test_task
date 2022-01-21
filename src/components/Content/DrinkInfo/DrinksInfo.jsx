@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import { getDrink } from "../../../api";
 import Error from "../../Error/Error";
 import Loader from "../../Loader/Loader";
-import d from "./DrinkInfo.module.css"
 import Info from "./Info/Info";
+import d from "./DrinkInfo.module.css";
 
 function DrinkInfo(props) {
   const [error, setError] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [drink, setDrink] = useState([])
-
 
   useEffect(() => {
     setLoaded(true);
@@ -23,7 +22,6 @@ function DrinkInfo(props) {
       .then(() => setLoaded(false));
   }, [props.id]);
   
-  console.log(drink[0]);
   return(
     <div className={d.container}>
       {!loaded && <Info info={drink[0]}/>}

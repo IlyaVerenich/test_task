@@ -5,19 +5,33 @@ import Ingridients from "./Ingridients/Ingridients";
 import Alcoholic from "./Alcoholic/Alcoholic";
 import NonAlc from "./NonAlcoholic/NonAlcoholic";
 import Random from "./Random/Random";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "antd";
 import DrinkInfo from "./DrinkInfo/DrinksInfo";
+import SearchDrink from "./Search/SearchDrink";
+import IngridientInfo from "./IngridientsInfo/IngridientsInfo";
+// import IngridientInfo from "./IngridientsInfo/IngridientsInfo";
 
-function Content() {
+function Content(props) {
   const [change, setChange] = useState(null);
   const [id, setId] = useState (null);
+  const [name, setName] = useState (null)
+
+  useEffect (() => {
+    if (props.letter) {
+      setChange('Search')
+    }
+  },[props.letter])
 
   let getId = (id) => {
-    setChange("Info")
+    setChange("DrinkInfo")
     setId(id)
   }
 
+  let getName = (name) => {
+    setChange('IngridientInfo')
+    setName(name)
+  }
   return (
     <div className={c.container}>
       <div className={c.title}>
@@ -38,10 +52,12 @@ function Content() {
       </div>
 
       {change === "All" && <Drinks getId={(value)=>getId(value)}/>}
-      {change === "Ingridients" && <Ingridients getId={(value)=>getId(value)}/>}
+      {change === "Ingridients" && <Ingridients setName={(value)=>getName(value)}/>}
       {change === "Alcoholic" && <Alcoholic getId={(value)=>getId(value)}/>}
       {change === "NonAlc" && <NonAlc getId={(value)=>getId(value)}/>}
-      {change === 'Info' && <DrinkInfo id={id}/>}
+      {change === 'DrinkInfo' && <DrinkInfo id={id}/>}
+      {change === 'IngridientInfo' && <IngridientInfo name={name}/>}
+      {change === 'Search' && <SearchDrink getId={(value)=>getId(value)} letter={props.letter}/>}
       {change === null && <Random getId={(value)=>getId(value)}/>}
     </div>
   );

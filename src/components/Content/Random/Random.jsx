@@ -16,7 +16,7 @@ const Random = (props) => {
 
   let getRandomQuntity = () => {
     setLoaded(true);
-    Promise.all([...new Array(12)].map(() => getRandom())).then(
+    Promise.all([...new Array(14)].map(() => getRandom())).then(
       (results) => {
         setRandomAlc(results);
       },

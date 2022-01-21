@@ -1,6 +1,6 @@
 import { Card } from "antd";
 import Meta from "antd/lib/card/Meta";
-import c from "./Cards.module.css"
+import c from "./Cards.module.css";
 
 function Cards (props) {
 

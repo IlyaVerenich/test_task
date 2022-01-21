@@ -1,0 +1,42 @@
+.container{
+  width: 1600px;
+  height: 100%;
+  display: flex;
+  border: 1px black solid;
+  margin-left: 10%;
+}
+.name_container{
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+}
+.name{
+  font-size: 20px;
+  border-bottom: 1px black solid;
+}
+.title{
+  font-size: 20px;
+  margin: 10% 10%;
+}
+.about_container{
+  width: 75%;
+  border-left: 1px black solid;
+  border-right: 1px black solid;
+}
+.about{
+  font-size: 20px;
+  border-bottom: 1px black solid;
+}
+.about_info{
+
+}
+.type_container{
+  width: 15%;
+}
+.type{
+  font-size: 20px;
+  border-bottom: 1px black solid;
+}
+.type_info{
+
+}

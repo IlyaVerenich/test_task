@@ -30,3 +30,13 @@ export const getDrink = (ID) => {
   return axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ID}`)
     .then((res) => res.data)
 }
+
+export const getDrinkByLetter = (LETTER) => {
+  return axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${LETTER}`)
+    .then((res) => res.data)
+}
+
+export const getIngridientByName = (NAME) => {
+  return axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${NAME}`)
+    .then((res) => res.data)
+}
