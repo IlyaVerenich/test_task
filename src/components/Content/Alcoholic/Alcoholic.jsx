@@ -3,18 +3,19 @@ import { getAlcDrinks } from "../../../api";
 import { Card } from "antd";
 import Meta from "antd/lib/card/Meta";
 import Loader from "../../Loader/Loader";
-import a from "./Alcoholic.module.css";
 import Error from "../../Error/Error";
+import a from "./Alcoholic.module.css";
+
 
 function Alcoholic() {
   const [error, setError] = useState(null);
   const [loaded, setLoaded] = useState(false);
-  const [alco, setAlco] = useState([]);
+  const [alcoholic, setAlcoholic] = useState([]);
 
   useEffect(() => {
     setLoaded(true);
     getAlcDrinks()
-      .then((result) => setAlco(result.drinks),
+      .then((result) => setAlcoholic(result.drinks),
         (error) => {
           setLoaded(true);
           setError(error);
@@ -26,7 +27,7 @@ function Alcoholic() {
   return (
     <div className={a.container}>
       <div className={a.card}>
-        {alco.map((item) => (
+        {alcoholic.map((item) => (
           <Card
             style={{ width: 200, margin: 50 }}
             cover={<img alt="example" src={item.strDrinkThumb} />}

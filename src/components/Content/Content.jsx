@@ -1,7 +1,7 @@
-import c from "./Content.module.css";
-import "antd/dist/antd.css";
 import { useState } from "react";
 import { Button } from "antd";
+import c from "./Content.module.css";
+import "antd/dist/antd.css";
 import Drinks from "./Drinks/Drinks";
 import Ingridients from "./Ingridients/Ingridients";
 import Alcoholic from "./Alcoholic/Alcoholic";
@@ -21,7 +21,7 @@ function Content() {
           <Button type="text" onClick={() => setChange("Ingridients")}>
             Total ingridients:
           </Button>
-          <Button type="text" onClick={() => setChange("Alc")}>
+          <Button type="text" onClick={() => setChange("Alcoholic")}>
             Total alcoholic coctails:
           </Button>
           <Button type="text" onClick={() => setChange("NonAlc")}>
@@ -32,7 +32,7 @@ function Content() {
 
       {change === "All" && <Drinks />}
       {change === "Ingridients" && <Ingridients />}
-      {change === "Alc" && <Alcoholic />}
+      {change === "Alcoholic" && <Alcoholic />}
       {change === "NonAlc" && <NonAlc />}
       {change === null && (
         <div className={c.random}>

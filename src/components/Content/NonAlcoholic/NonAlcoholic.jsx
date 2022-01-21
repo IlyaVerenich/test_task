@@ -1,7 +1,7 @@
-import { Card } from "antd";
-import Meta from "antd/lib/card/Meta";
 import { useEffect, useState } from "react";
 import { getNonAlcDrinks } from "../../../api";
+import { Card } from "antd";
+import Meta from "antd/lib/card/Meta";
 import Error from "../../Error/Error";
 import Loader from "../../Loader/Loader";
 import n from "./NonAlcoholic.module.css";
