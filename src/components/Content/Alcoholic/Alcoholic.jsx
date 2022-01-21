@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { getAlcDrinks } from "../../../api";
-import { Card } from "antd";
-import Meta from "antd/lib/card/Meta";
 import Loader from "../../Loader/Loader";
 import Error from "../../Error/Error";
-import a from "./Alcoholic.module.css";
+import Cards from "../Cards/Cards";
+import a from "./Alcoholic.module.css"
 
-
-function Alcoholic() {
+function Alcoholic(props) {
   const [error, setError] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [alcoholic, setAlcoholic] = useState([]);
@@ -26,14 +24,10 @@ function Alcoholic() {
 
   return (
     <div className={a.container}>
+      <div className={a.title}>All alcoholic coctails</div>
       <div className={a.card}>
         {alcoholic.map((item) => (
-          <Card
-            style={{ width: 200, margin: 50 }}
-            cover={<img alt="example" src={item.strDrinkThumb} />}
-          >
-            <Meta title={item.strDrink} />
-          </Card>
+          <Cards key={item.idDrink} item={item} setId={(value)=>props.getId(value)}/>
         ))}
       </div>
       {error && <Error message={error.message} />}

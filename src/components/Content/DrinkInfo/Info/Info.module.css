@@ -1,0 +1,31 @@
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+}
+.title_container{
+  
+}
+.img{
+  width: 200px;
+}
+.title{
+
+}
+.about_container{
+  
+  margin-left: 100%;
+}
+.about_title{
+  font-size: 80px;
+}
+.info{
+  display: flex;
+}
+.ingridients{
+
+}
+.how_create{
+  
+}
