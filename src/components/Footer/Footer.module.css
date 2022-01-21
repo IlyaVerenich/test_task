@@ -1,8 +1,8 @@
-.container{
-    height: 50px;
-    display: flex;
-    justify-content: space-around;
+.container {
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
 }
-a{
-    color: black;
+a {
+  color: black;
 }

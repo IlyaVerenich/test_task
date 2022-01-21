@@ -1,5 +1,6 @@
 let state = {
-    items: [],
+  nonAlc: [],
+  random: [],
 };
 
 export default state;
