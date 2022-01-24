@@ -6,7 +6,7 @@ import Header from "./components/Header/Header";
 
 function App() {
   const [letter, setLetter] = useState(null)
-  let getLetter = (value) => {
+  const getLetter = (value) => {
     setLetter(value);
   }
   return (
