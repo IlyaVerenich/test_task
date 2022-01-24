@@ -3,10 +3,11 @@ import logo from "../../img/glass.svg";
 import { Input, Switch } from "antd";
 import "antd/dist/antd.css";
 
-function Header() {
-  let searchInfo = (value) => {
-    console.log(value);
-  };
+function Header(props) {
+
+  let getLetter = (value) => {
+    props.getLetter(value)
+  }
   let changeTheme = () => {
     console.log("change");
   };
@@ -17,7 +18,7 @@ function Header() {
       <Input.Search
         placeholder="Search"
         style={{ marginTop: 15, width: 500 }}
-        onSearch={searchInfo}
+        onSearch={getLetter}
       />
       <Switch
         onClick={changeTheme}

@@ -1,32 +1,32 @@
 import { useEffect, useState } from "react";
-import { getAlcDrinks } from "../../../api";
+import { getDrinkByLetter } from "../../../api";
 import Loader from "../../Loader/Loader";
 import Error from "../../Error/Error";
 import Cards from "../Cards/Cards";
-import a from "./Alcoholic.module.css";
+import a from "./SearchDrink.module.css"
 
-function Alcoholic(props) {
+function SearchDrink(props) {
   const [error, setError] = useState(null);
   const [loaded, setLoaded] = useState(false);
-  const [alcoholic, setAlcoholic] = useState([]);
+  const [search, setSearch] = useState([]);
 
   useEffect(() => {
     setLoaded(true);
-    getAlcDrinks()
-      .then((result) => setAlcoholic(result.drinks),
+    getDrinkByLetter(props.letter)
+      .then((result) => setSearch(result.drinks),
         (error) => {
           setLoaded(true);
           setError(error);
         }
       )
       .then(() => setLoaded(false));
-  }, []);
-
+  }, [props.letter]);
+  
   return (
     <div className={a.container}>
-      <div className={a.title}>All alcoholic coctails</div>
+      <div className={a.title}>All search drinks</div>
       <div className={a.card}>
-        {alcoholic.map((item) => (
+        {search.map((item) => (
           <Cards key={item.idDrink} item={item} setId={(value)=>props.getId(value)}/>
         ))}
       </div>
@@ -36,4 +36,4 @@ function Alcoholic(props) {
   );
 }
 
-export default Alcoholic;
+export default SearchDrink;

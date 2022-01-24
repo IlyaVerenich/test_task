@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { Button } from "antd";
 import c from "./Content.module.css";
 import "antd/dist/antd.css";
 import Drinks from "./Drinks/Drinks";
@@ -7,10 +5,32 @@ import Ingridients from "./Ingridients/Ingridients";
 import Alcoholic from "./Alcoholic/Alcoholic";
 import NonAlc from "./NonAlcoholic/NonAlcoholic";
 import Random from "./Random/Random";
+import { useState, useEffect } from "react";
+import { Button } from "antd";
+import DrinkInfo from "./DrinkInfo/DrinksInfo";
+import SearchDrink from "./Search/SearchDrink";
+import IngridientInfo from "./IngridientsInfo/IngridientsInfo";
 
-function Content() {
+function Content(props) {
   const [change, setChange] = useState(null);
+  const [id, setId] = useState (null);
+  const [name, setName] = useState (null);
 
+  useEffect (() => {
+    if (props.letter) {
+      setChange('Search')
+    }
+  },[props.letter])
+
+  let getId = (id) => {
+    setChange("DrinkInfo");
+    setId(id)
+  }
+
+  let getName = (name) => {
+    setChange('IngridientInfo');
+    setName(name)
+  }
   return (
     <div className={c.container}>
       <div className={c.title}>
@@ -30,18 +50,14 @@ function Content() {
         </div>
       </div>
 
-      {change === "All" && <Drinks />}
-      {change === "Ingridients" && <Ingridients />}
-      {change === "Alcoholic" && <Alcoholic />}
-      {change === "NonAlc" && <NonAlc />}
-      {change === null && (
-        <div className={c.random}>
-          <p className={c.random_title}>Random drinks</p>
-          <div className={c.random_container}>
-            <Random />
-          </div>
-        </div>
-      )}
+      {change === "All" && <Drinks getId={(value)=>getId(value)}/>}
+      {change === "Ingridients" && <Ingridients setName={(value)=>getName(value)}/>}
+      {change === "Alcoholic" && <Alcoholic getId={(value)=>getId(value)}/>}
+      {change === "NonAlc" && <NonAlc getId={(value)=>getId(value)}/>}
+      {change === 'DrinkInfo' && <DrinkInfo id={id}/>}
+      {change === 'IngridientInfo' && <IngridientInfo name={name}/>}
+      {change === 'Search' && <SearchDrink getId={(value)=>getId(value)} letter={props.letter}/>}
+      {change === null && <Random getId={(value)=>getId(value)}/>}
     </div>
   );
 }

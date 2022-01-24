@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { getNonAlcDrinks } from "../../../api";
-import { Card } from "antd";
-import Meta from "antd/lib/card/Meta";
 import Error from "../../Error/Error";
 import Loader from "../../Loader/Loader";
+import Cards from "../Cards/Cards";
 import n from "./NonAlcoholic.module.css";
 
-function NonAlc() {
+function NonAlc(props) {
   const [error, setError] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [nonAlc, setNonAlc] = useState([]);
@@ -28,14 +27,10 @@ function NonAlc() {
 
   return (
     <div className={n.container}>
+      <div className={n.title}>All non alcoholic coctails</div>
       <div className={n.card}>
         {nonAlc.map((item) => (
-          <Card
-            style={{ width: 200, margin: 50 }}
-            cover={<img alt="example" src={item.strDrinkThumb} />}
-          >
-            <Meta title={item.strDrink} />
-          </Card>
+          <Cards key={item.idDrink} item={item} setId={(value)=>props.getId(value)}/>
         ))}
       </div>
       {error && <Error message={error.message} />}
