@@ -10,12 +10,11 @@ import { Button } from "antd";
 import DrinkInfo from "./DrinkInfo/DrinksInfo";
 import SearchDrink from "./Search/SearchDrink";
 import IngridientInfo from "./IngridientsInfo/IngridientsInfo";
-// import IngridientInfo from "./IngridientsInfo/IngridientsInfo";
 
 function Content(props) {
   const [change, setChange] = useState(null);
   const [id, setId] = useState (null);
-  const [name, setName] = useState (null)
+  const [name, setName] = useState (null);
 
   useEffect (() => {
     if (props.letter) {
@@ -24,12 +23,12 @@ function Content(props) {
   },[props.letter])
 
   let getId = (id) => {
-    setChange("DrinkInfo")
+    setChange("DrinkInfo");
     setId(id)
   }
 
   let getName = (name) => {
-    setChange('IngridientInfo')
+    setChange('IngridientInfo');
     setName(name)
   }
   return (

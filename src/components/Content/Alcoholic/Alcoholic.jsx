@@ -3,7 +3,7 @@ import { getAlcDrinks } from "../../../api";
 import Loader from "../../Loader/Loader";
 import Error from "../../Error/Error";
 import Cards from "../Cards/Cards";
-import a from "./Alcoholic.module.css"
+import a from "./Alcoholic.module.css";
 
 function Alcoholic(props) {
   const [error, setError] = useState(null);

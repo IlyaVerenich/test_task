@@ -3,7 +3,7 @@ import { getIngridients } from "../../../api";
 import { Button } from "antd";
 import Error from "../../Error/Error";
 import Loader from "../../Loader/Loader";
-import i from "./Ingridients.module.css"
+import i from "./Ingridients.module.css";
 
 
 function Ingridients(props) {

@@ -8,7 +8,7 @@ import d from "./DrinkInfo.module.css";
 function DrinkInfo(props) {
   const [error, setError] = useState(null);
   const [loaded, setLoaded] = useState(false);
-  const [drink, setDrink] = useState([])
+  const [drink, setDrink] = useState([]);
 
   useEffect(() => {
     setLoaded(true);
